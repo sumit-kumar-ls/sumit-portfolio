@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
  * 1. Place your new 3D avatar (.webp, .png, .glb) inside `public/assets/character/`
  * 2. Update the CHARACTER_ASSET_PATH constant below to point to your file.
  */
-export const CHARACTER_ASSET_PATH = "/assets/character/sumit-boy.webp";
+export const CHARACTER_ASSET_PATH = `${import.meta.env.BASE_URL}assets/character/sumit-boy.png`;
 
 export const Character3D = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
