@@ -6,26 +6,26 @@ export const profileData = {
   aboutEditorial: {
     badge: "About Sumit",
     heading: "Curious by nature. Building with purpose.",
-    intro: "I am a 1st-year BCA student with a deep interest in software engineering and backend logic.",
+    intro: "I am a 1st-year BCA student with a deep interest in software development and programming fundamentals.",
     paragraphs: [
-      "My daily focus revolves around strengthening core computer science principles. I work regularly with Java, Python, and SQL, and I am currently deepening my understanding of low-level execution by mastering the C programming language.",
-      "Alongside core computer science, I build websites and explore web development—enjoying the process of shaping structured logic into clean, functional digital experiences."
+      "My daily focus revolves around strengthening core computer science principles. I work regularly with Java, Python, and SQL, while currently learning the C programming language to understand low-level execution and memory concepts.",
+      "Alongside my BCA coursework, I build websites and explore web development—enjoying the process of shaping structured logic into clean, functional digital experiences."
     ],
     pillars: [
       {
-        title: "Clean Programming Logic",
-        description: "Focusing on problem-solving, structured algorithms, and object-oriented patterns in Java & Python."
+        title: "Programming Logic",
+        description: "Focusing on problem-solving habits, structured logic, and object-oriented concepts in Java & Python."
       },
       {
-        title: "C Language Mastery",
-        description: "Currently mastering C to gain a solid foundation in memory management, pointers, and execution speed."
+        title: "Learning C Language",
+        description: "Currently learning C to build a strong foundation in memory concepts and structural programming."
       },
       {
-        title: "Database Engineering",
-        description: "Exploring SQL to design relational schemas, write queries, and understand database fundamentals."
+        title: "Exploring Databases",
+        description: "Working with SQL and relational database concepts to understand structured data storage and queries."
       },
       {
-        title: "Web Exploration",
+        title: "Web Development",
         description: "Building websites and exploring web development concepts alongside backend progression."
       }
     ]
@@ -75,25 +75,25 @@ export const profileData = {
       step: "02",
       title: "CS Fundamentals",
       badge: "Core Logic",
-      description: "Studying core data structures, algorithms, discrete structures, and computer architecture principles."
+      description: "Studying core data structures, algorithms, discrete structures, and computer organization principles."
     },
     {
       step: "03",
       title: "Java & Python",
       badge: "Programming",
-      description: "Developing problem-solving habits using Java for object-oriented logic and Python for scripting & data manipulation."
+      description: "Developing problem-solving habits using Java for object-oriented logic and Python for scripting."
     },
     {
       step: "04",
-      title: "C Language Mastery",
+      title: "Learning C",
       badge: "Current Target",
-      description: "Hands-on exploration of pointers, memory allocation, and structural programming in C."
+      description: "Hands-on exploration of pointers, memory concepts, and structural programming in C."
     },
     {
       step: "05",
       title: "SQL & Databases",
       badge: "Backend Focus",
-      description: "Learning relational database modeling, writing structured SQL queries, and handling data persistence."
+      description: "Learning relational database concepts and writing structured SQL queries for data handling."
     },
     {
       step: "06",
@@ -105,7 +105,7 @@ export const profileData = {
       step: "07",
       title: "Mini-Projects",
       badge: "Practical Build",
-      description: "Synthesizing concepts by crafting practical mini-projects in Java, Python, SQL, and Web Development."
+      description: "Applying concepts by crafting practical mini-projects in Java, Python, SQL, and Web Development."
     }
   ],
   projectsSection: {
@@ -114,37 +114,37 @@ export const profileData = {
     projects: [
       {
         id: "java-projects",
-        title: "Java Logic & Console Utilities",
+        title: "Java Logic & Mini-Projects",
         tag: "Java Application",
         status: "In Progress",
-        description: "A collection of console utilities and algorithmic problem-solving scripts written in Java, emphasizing clean object-oriented architecture and modular design.",
+        description: "A collection of console utilities and algorithmic problem-solving scripts written in Java, emphasizing object-oriented logic and modular design.",
         technologies: ["Java"],
-        highlights: ["Object-Oriented Design", "Console Interfaces", "Algorithm Logic"]
+        highlights: ["Object-Oriented Concepts", "Console Workflows", "Algorithmic Tasks"]
       },
       {
         id: "python-automation",
-        title: "Python Scripting & Utility Suite",
+        title: "Python Scripting & Utilities",
         tag: "Python Scripting",
         status: "In Progress",
-        description: "Mini-projects built with Python to automate everyday tasks, manipulate data files, and solve algorithmic logic puzzles with concise syntax.",
+        description: "Mini-projects built with Python to automate everyday tasks, parse data files, and practice programming fundamentals.",
         technologies: ["Python"],
-        highlights: ["Script Automation", "Data Parsing", "Algorithmic Tasks"]
+        highlights: ["Scripting Logic", "Data Parsing", "Problem Solving"]
       },
       {
         id: "sql-workbench",
-        title: "SQL Database Schema & Queries",
+        title: "SQL Relational Database Practice",
         tag: "Database System",
         status: "In Progress",
-        description: "Designing structured relational database schemas, creating entity-relationship mappings, and practicing complex SQL queries.",
+        description: "Practicing relational database concepts, designing schemas, and writing structured SQL queries.",
         technologies: ["SQL"],
-        highlights: ["Schema Design", "Complex Joins", "Data Integrity"]
+        highlights: ["Schema Concepts", "Relational Queries", "Data Integrity"]
       },
       {
         id: "web-exploration",
         title: "Responsive Web Development Projects",
         tag: "Web Project",
         status: "In Progress",
-        description: "Building responsive, modern websites to structure information elegantly and explore modern web development principles.",
+        description: "Building responsive, modern websites to present information cleanly and explore web development best practices.",
         technologies: ["Web Development"],
         highlights: ["Responsive Layouts", "Clean UI/UX", "Modern Web Structure"]
       }
@@ -154,6 +154,6 @@ export const profileData = {
     heading: "Let's build something interesting.",
     subheading: "I am always open to discussing computer science, software development, seeking mentorship, or connecting with fellow tech enthusiasts.",
     email: "sumitsumi34163@gmail.com",
-    github: "" // Updated if remote configured
+    github: ""
   }
 };
