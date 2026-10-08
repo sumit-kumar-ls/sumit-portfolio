@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal, Code2 } from 'lucide-react';
-import { profileData } from '../data/profileData';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const navItems = [
-  { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Focus', href: '#focus' },
+  { label: 'Journey', href: '#journey' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
 
-export const Navbar = ({ activeSection, githubUrl }) => {
+export const Navbar = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,27 +38,25 @@ export const Navbar = ({ activeSection, githubUrl }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0b0c0e]/85 backdrop-blur-md border-b border-white/5 py-3 shadow-lg shadow-black/20'
-          : 'bg-transparent py-5'
+          ? 'bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#E6DFC7] py-4 shadow-warm-sm'
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Logo */}
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        {/* Brand Name Logo */}
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, '#home')}
-          className="group flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-80"
+          className="group flex items-center gap-3 font-heading font-bold text-lg sm:text-xl tracking-tight text-[#1A1918] hover:text-[#4A5D2E] transition-colors"
         >
-          <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:border-indigo-500/60 transition-colors">
-            <Terminal className="w-4 h-4" />
-          </div>
-          <span className="font-mono text-sm tracking-tight">
-            sumit<span className="text-indigo-400">.kumar</span>
+          <span className="w-8 h-8 rounded-full bg-[#EAE3D2] border border-[#D5CBAE] flex items-center justify-center text-xs font-semibold text-[#4A5D2E] group-hover:bg-[#4A5D2E] group-hover:text-white transition-all">
+            SK
           </span>
+          <span className="tracking-wide">SUMIT KUMAR</span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-full backdrop-blur-sm">
+        {/* Desktop Links */}
+        <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[#4A4741]">
           {navItems.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -69,43 +65,44 @@ export const Navbar = ({ activeSection, githubUrl }) => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'text-white bg-indigo-500/20 border border-indigo-500/40 shadow-sm'
-                    : 'text-gray-400 hover:text-white hover:bg-white/[0.05]'
+                className={`relative py-1 transition-colors hover:text-[#1A1918] ${
+                  isActive ? 'text-[#4A5D2E] font-semibold' : ''
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4A5D2E] rounded-full" />
+                )}
               </a>
             );
           })}
         </nav>
 
-        {/* Right Action Badge / Status */}
+        {/* Right Side Status */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contact"
             onClick={(e) => scrollToSection(e, '#contact')}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-indigo-600/10 hover:bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs font-medium transition-all duration-200"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E2DAA8] text-xs font-medium text-[#2C2B29] hover:border-[#4A5D2E] shadow-warm-sm transition-all hover:-translate-y-0.5"
           >
-            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-            <span>1st Year BCA</span>
+            <span className="w-2 h-2 rounded-full bg-[#4A5D2E] animate-pulse" />
+            <span>Available to connect</span>
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 hover:text-white transition-colors"
-          aria-label="Toggle Navigation Menu"
+          className="md:hidden p-2 rounded-xl bg-white border border-[#E2DAA8] text-[#2C2B29] hover:bg-[#F4F0E8] transition-colors"
+          aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0e1014] border-b border-white/10 px-6 py-6 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-[#FAF8F3] border-b border-[#E6DFC7] px-6 py-6 space-y-4 shadow-warm-md animate-in fade-in slide-in-from-top-4 duration-200">
           {navItems.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -114,23 +111,22 @@ export const Navbar = ({ activeSection, githubUrl }) => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 font-semibold'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                className={`block py-2 text-base font-medium transition-colors ${
+                  isActive ? 'text-[#4A5D2E] font-bold' : 'text-[#4A4741] hover:text-[#1A1918]'
                 }`}
               >
                 {item.label}
               </a>
             );
           })}
-          <div className="pt-2 border-t border-white/5">
+          <div className="pt-4 border-t border-[#E8E2D5]">
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#2C2B29] text-white text-sm font-semibold hover:bg-[#4A5D2E] transition-colors"
             >
-              Get In Touch
+              <span>Let's Connect</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>

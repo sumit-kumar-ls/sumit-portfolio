@@ -2,40 +2,91 @@
 
 @layer base {
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #0b0c0e;
-    color: #e1e4ea;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #FAF8F3;
+    color: #2C2B29;
   }
+}
+
+.font-serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-heading {
+  font-family: 'Outfit', sans-serif;
 }
 
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom Scrollbar */
+/* Warm Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0c0e;
+  background: #FAF8F3;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f242d;
-  border-radius: 4px;
+  background: #E4DCCF;
+  border-radius: 5px;
+  border: 2px solid #FAF8F3;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a303c;
+  background: #D3C7B5;
 }
 
-/* Glass & Border Utilities */
-.card-border {
-  border: 1px solid rgba(255, 255, 255, 0.07);
+/* Custom Soft Warm Shadows & Borders */
+.shadow-warm-sm {
+  box-shadow: 0 4px 20px -2px rgba(60, 50, 40, 0.04), 0 2px 6px -1px rgba(60, 50, 40, 0.02);
 }
 
-.card-border:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+.shadow-warm-md {
+  box-shadow: 0 12px 32px -4px rgba(60, 50, 40, 0.06), 0 4px 12px -2px rgba(60, 50, 40, 0.03);
 }
 
-.gradient-radial {
-  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(11, 12, 14, 0) 70%);
+.shadow-warm-lg {
+  box-shadow: 0 24px 60px -10px rgba(60, 50, 40, 0.08), 0 8px 24px -4px rgba(60, 50, 40, 0.04);
+}
+
+.border-warm {
+  border: 1px solid rgba(220, 212, 196, 0.7);
+}
+
+.border-warm-hover:hover {
+  border-color: rgba(74, 93, 46, 0.35);
+}
+
+/* Smooth Floating Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatSlight {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-slight {
+  animation: floatSlight 4s ease-in-out infinite;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow, .animate-float-slight {
+    animation: none !important;
+  }
 }

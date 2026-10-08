@@ -1,131 +1,74 @@
 import React from 'react';
-import { BookOpen, Code2, Database, Globe, Users, Cpu } from 'lucide-react';
+import { Compass, Code2, Database, Cpu, Globe, Users } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export const AboutSection = () => {
+  const { heading, intro, paragraphs, pillars } = profileData.aboutEditorial;
+
   return (
-    <section id="about" className="py-20 relative border-t border-white/5 bg-[#0d0e12]/60">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/5">
-          <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-              01 // Background & Identity
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">About Sumit</h2>
+    <section id="about" className="py-24 relative border-t border-[#E8E2D5] bg-[#FAF8F3]">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Editorial Top Headline */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAE3D2]/70 text-xs font-mono font-medium text-[#4A5D2E]">
+            <Compass className="w-3.5 h-3.5 text-[#C86D51]" />
+            <span>ABOUT SUMIT</span>
           </div>
-          <p className="text-sm font-mono text-gray-400 mt-2 md:mt-0">
-            1st Year BCA • Software Developer Aspirant
+
+          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-[#1A1918] tracking-tight leading-tight">
+            Curious by nature. <br />
+            <span className="font-serif italic font-normal text-[#4A5D2E]">Building with purpose.</span>
+          </h2>
+
+          <p className="text-lg text-[#5A5750] leading-relaxed font-medium">
+            {intro}
           </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Main Editorial Text Column */}
-          <div className="lg:col-span-7 space-y-6">
-            <h3 className="text-xl sm:text-2xl font-semibold text-white leading-snug">
-              {profileData.aboutDetailed.headline}
-            </h3>
-            
-            <div className="space-y-4 text-gray-400 text-sm sm:text-base leading-relaxed">
-              {profileData.aboutDetailed.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
-            </div>
+        {/* Spacious 2-Column Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Main Story Column */}
+          <div className="lg:col-span-7 space-y-6 text-[#4A4741] text-base leading-relaxed font-normal">
+            {paragraphs.map((paragraph, idx) => (
+              <p key={idx} className="bg-white/60 p-6 rounded-2xl border border-[#E8E2D5] shadow-warm-sm">
+                {paragraph}
+              </p>
+            ))}
 
-            {/* Core Pillars / Mindset Cards */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
-                    <Cpu className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-sm font-semibold text-white">Logic & Algorithms</h4>
-                </div>
-                <p className="text-xs text-gray-400 leading-normal">
-                  Building clean programming logic in Java and Python while mastering fundamental execution in C.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
-                    <Database className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-sm font-semibold text-white">Databases & Data</h4>
-                </div>
-                <p className="text-xs text-gray-400 leading-normal">
-                  Working with SQL and relational databases to model schemas and write structured queries.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
-                    <Globe className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-sm font-semibold text-white">Website Building</h4>
-                </div>
-                <p className="text-xs text-gray-400 leading-normal">
-                  Building websites and exploring web development concepts alongside backend progression.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 transition-colors">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
-                    <Users className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-sm font-semibold text-white">Networking & Growth</h4>
-                </div>
-                <p className="text-xs text-gray-400 leading-normal">
-                  Connecting with fellow tech enthusiasts, seeking mentorship, and collaborating on code.
-                </p>
-              </div>
+            {/* Quick Profile Summary Card */}
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#EAE3D2]/40 via-[#FAF8F3] to-[#E4DCCF]/50 border border-[#E2DAA8] space-y-4">
+              <h3 className="text-sm font-mono uppercase tracking-wider text-[#4A5D2E] font-semibold">
+                Core Mindset & Focus
+              </h3>
+              <p className="text-sm text-[#2C2B29] leading-relaxed italic">
+                "Focused on strengthening core Computer Science fundamentals, writing clean logic, and making steady daily progress toward backend software development."
+              </p>
             </div>
           </div>
 
-          {/* Right Column: Structured Profile Highlights */}
-          <div className="lg:col-span-5">
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-white/5">
-                <span className="text-xs font-mono uppercase text-gray-400 tracking-wider">Quick Profile</span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Verified</span>
+          {/* Pillars Cards Grid Column */}
+          <div className="lg:col-span-5 grid grid-cols-1 gap-4">
+            {pillars.map((pillar, pIdx) => (
+              <div
+                key={pIdx}
+                className="p-5 rounded-2xl bg-white border border-[#E8E2D5] hover:border-[#4A5D2E]/40 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-3.5 mb-2">
+                  <div className="w-8 h-8 rounded-xl bg-[#F4F0E8] flex items-center justify-center text-[#4A5D2E] group-hover:bg-[#4A5D2E] group-hover:text-white transition-colors">
+                    {pIdx === 0 && <Cpu className="w-4 h-4" />}
+                    {pIdx === 1 && <Code2 className="w-4 h-4" />}
+                    {pIdx === 2 && <Database className="w-4 h-4" />}
+                    {pIdx === 3 && <Globe className="w-4 h-4" />}
+                  </div>
+                  <h4 className="text-base font-heading font-bold text-[#1A1918]">
+                    {pillar.title}
+                  </h4>
+                </div>
+                <p className="text-xs text-[#5A5750] pl-11 leading-relaxed">
+                  {pillar.description}
+                </p>
               </div>
-
-              <div className="space-y-4 text-xs font-mono">
-                <div className="flex justify-between items-center py-1.5 border-b border-white/[0.04]">
-                  <span className="text-gray-500">Education</span>
-                  <span className="text-gray-200 font-sans font-medium text-right">1st Year BCA</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/[0.04]">
-                  <span className="text-gray-500">Direction</span>
-                  <span className="text-gray-200 font-sans font-medium text-right">Backend & Software Dev</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/[0.04]">
-                  <span className="text-gray-500">Primary Languages</span>
-                  <span className="text-gray-200 font-sans font-medium text-right">Java, Python</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/[0.04]">
-                  <span className="text-gray-500">Current Target</span>
-                  <span className="text-indigo-400 font-sans font-semibold text-right">C (Learning)</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/[0.04]">
-                  <span className="text-gray-500">Database</span>
-                  <span className="text-gray-200 font-sans font-medium text-right">SQL</span>
-                </div>
-                <div className="flex justify-between items-center py-1.5">
-                  <span className="text-gray-500">Tools</span>
-                  <span className="text-gray-200 font-sans font-medium text-right">Git, GitHub, VS Code</span>
-                </div>
-              </div>
-
-              {/* Callout Quote */}
-              <div className="p-4 rounded-xl bg-indigo-500/[0.04] border border-indigo-500/20 text-xs text-indigo-200 italic leading-relaxed">
-                "Focused on building clean logic, mastering core computer science concepts, and taking consistent steps toward software engineering."
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, Github, MessageSquare } from 'lucide-react';
+import { Mail, Copy, Check, Send, Github } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export const ContactSection = ({ githubUrl }) => {
   const [copied, setCopied] = useState(false);
-  const { email, heading, subheading, availabilityText } = profileData.contact;
+  const { heading, subheading, email } = profileData.contact;
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -13,81 +13,76 @@ export const ContactSection = ({ githubUrl }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative border-t border-white/5 bg-[#0c0d11]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {/* Section Header */}
-        <div className="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 uppercase tracking-widest mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-          05 // Get In Touch
+    <section id="contact" className="py-28 relative border-t border-[#E8E2D5] bg-gradient-to-b from-[#FAF8F3] to-[#F4F0E8]">
+      <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
+        
+        {/* Contact Tag */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#E2DAA8] text-xs font-mono font-medium text-[#4A5D2E] shadow-warm-sm">
+          <Mail className="w-3.5 h-3.5 text-[#C86D51]" />
+          <span>GET IN TOUCH</span>
         </div>
 
-        <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-6 font-sans">
-          {heading}
+        {/* Large Typographic Headline */}
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold text-[#1A1918] tracking-tight leading-tight">
+          Let's build <br className="hidden sm:block" />
+          <span className="font-serif italic font-normal text-[#4A5D2E]">something interesting.</span>
         </h2>
 
-        <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        <p className="text-base sm:text-xl text-[#5A5750] max-w-2xl mx-auto leading-relaxed font-normal">
           {subheading}
         </p>
 
-        {/* Contact Interactive Box */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm max-w-2xl mx-auto space-y-8 shadow-2xl shadow-black/50">
-          <div className="flex flex-col items-center justify-center gap-2">
-            <div className="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-2">
-              <Mail className="w-8 h-8" />
-            </div>
-            <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">Direct Email Address</span>
-            <span className="text-lg sm:text-2xl font-mono font-bold text-white tracking-tight break-all">
+        {/* Warm Cream Contact Card */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#E2DAA8] shadow-warm-lg max-w-2xl mx-auto space-y-8">
+          <div className="space-y-2">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#8A857B]">Direct Email Address</span>
+            <div className="text-xl sm:text-3xl font-heading font-bold text-[#1A1918] tracking-tight break-all">
               {email}
-            </span>
+            </div>
           </div>
 
-          {/* Actions */}
+          {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            {/* Copy Button */}
             <button
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 text-white font-medium text-sm transition-all duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#FAF8F3] hover:bg-[#F4F0E8] border border-[#E8E2D5] text-[#2C2B29] font-medium text-sm transition-all duration-300 shadow-warm-sm hover:-translate-y-0.5"
             >
               {copied ? (
                 <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-mono text-xs">Email Copied!</span>
+                  <Check className="w-4 h-4 text-[#4A5D2E]" />
+                  <span className="text-[#4A5D2E] font-semibold">Copied to Clipboard!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 text-gray-400" />
+                  <Copy className="w-4 h-4 text-[#5A5750]" />
                   <span>Copy Address</span>
                 </>
               )}
             </button>
 
-            {/* Direct Mailto */}
             <a
               href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-indigo-600/20"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#2C2B29] hover:bg-[#4A5D2E] text-white font-medium text-sm transition-all duration-300 shadow-warm-md hover:-translate-y-0.5"
             >
               <Send className="w-4 h-4" />
               <span>Send Email</span>
             </a>
 
-            {/* GitHub if present */}
             {githubUrl && (
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 text-white font-medium text-sm transition-all duration-200"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#FAF8F3] hover:bg-[#F4F0E8] border border-[#E8E2D5] text-[#2C2B29] font-medium text-sm transition-all duration-300 shadow-warm-sm hover:-translate-y-0.5"
               >
-                <Github className="w-4 h-4 text-gray-400" />
-                <span>GitHub Profile</span>
+                <Github className="w-4 h-4 text-[#5A5750]" />
+                <span>GitHub</span>
               </a>
             )}
           </div>
 
-          {/* Availability note */}
-          <div className="pt-4 border-t border-white/5 text-xs text-gray-500 font-mono flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>{availabilityText}</span>
+          <div className="pt-4 border-t border-[#F0EBE1] text-xs text-[#8A857B] font-mono">
+            Open for discussions, networking, and learning opportunities.
           </div>
         </div>
       </div>

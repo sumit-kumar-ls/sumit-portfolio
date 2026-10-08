@@ -1,154 +1,159 @@
 export const profileData = {
   name: "Sumit Kumar",
   title: "1st Year BCA Student",
-  roles: [
-    "1st Year BCA Student",
-    "Backend & Software Developer Aspirant",
-    "Web Development Explorer"
-  ],
-  bio: "Passionate learner exploring Java, Python, and SQL while mastering C. Focused on building clean logic, working with databases, and developing toward backend software engineering.",
-  aboutDetailed: {
-    headline: "Building strong fundamentals in Computer Science & Software Engineering",
+  headline: "Building my way into software.",
+  subheading: "1st Year BCA student exploring software development, backend systems, and web development.",
+  aboutEditorial: {
+    badge: "About Sumit",
+    heading: "Curious by nature. Building with purpose.",
+    intro: "I am a 1st-year BCA student with a deep interest in software engineering and backend logic.",
     paragraphs: [
-      "I am a 1st-year BCA (Bachelor of Computer Applications) student with a deep interest in software development and backend systems.",
-      "My current journey revolves around mastering core programming principles. I regularly work with Java, Python, and SQL, and I am currently strengthening my low-level logic by mastering the C programming language.",
-      "Alongside core computer science, I build websites and explore web development—focusing on clean execution, structured code, and continuous learning."
+      "My daily focus revolves around strengthening core computer science principles. I work regularly with Java, Python, and SQL, and I am currently deepening my understanding of low-level execution by mastering the C programming language.",
+      "Alongside core computer science, I build websites and explore web development—enjoying the process of shaping structured logic into clean, functional digital experiences."
+    ],
+    pillars: [
+      {
+        title: "Clean Programming Logic",
+        description: "Focusing on problem-solving, structured algorithms, and object-oriented patterns in Java & Python."
+      },
+      {
+        title: "C Language Mastery",
+        description: "Currently mastering C to gain a solid foundation in memory management, pointers, and execution speed."
+      },
+      {
+        title: "Database Engineering",
+        description: "Exploring SQL to design relational schemas, write queries, and understand database fundamentals."
+      },
+      {
+        title: "Web Exploration",
+        description: "Building websites and exploring web development concepts alongside backend progression."
+      }
     ]
   },
-  learningActivities: [
+  skillsCategories: [
     {
-      title: "Core CS Curriculum",
-      description: "Strengthening core Computer Science concepts and algorithmic foundations through my BCA coursework."
-    },
-    {
-      title: "Java & Python Mini-Projects",
-      description: "Building mini-projects to solve problems, practice object-oriented patterns, and sharpen logic."
-    },
-    {
-      title: "C Language Mastery",
-      description: "Currently mastering C to gain a solid understanding of memory, pointers, and low-level execution."
-    },
-    {
-      title: "Backend & Database Fundamentals",
-      description: "Working with SQL and relational databases to understand data structure, queries, and persistent storage."
-    },
-    {
-      title: "Web Development",
-      description: "Building websites and exploring modern web development patterns and interfaces."
-    },
-    {
-      title: "Community & Collaboration",
-      description: "Eager to connect with tech enthusiasts, seek mentorship, and collaborate on software projects."
-    }
-  ],
-  skillsCategory: [
-    {
-      category: "Programming Languages",
+      title: "PROGRAMMING",
       description: "Core languages for logic building and software development",
       skills: [
-        { name: "Java", category: "Core", tag: "Object-Oriented" },
-        { name: "Python", category: "Core", tag: "Scripting & Logic" },
-        { name: "C", category: "Core", tag: "Learning", isLearning: true }
+        { name: "Java", category: "Core Language", tag: "Object-Oriented" },
+        { name: "Python", category: "Core Language", tag: "Scripting & Logic" },
+        { name: "C", category: "Core Language", tag: "Learning", isLearning: true }
       ]
     },
     {
-      category: "Database",
+      title: "DATA",
       description: "Data management and relational database querying",
       skills: [
         { name: "SQL", category: "Database", tag: "Relational Queries" }
       ]
     },
     {
-      category: "Development Tools",
-      description: "Essential tools for version control and software workflow",
+      title: "TOOLS",
+      description: "Essential tools for version control and developer workflow",
       skills: [
-        { name: "Git", category: "Tool", tag: "Version Control" },
-        { name: "GitHub", category: "Tool", tag: "Code Repository" },
-        { name: "VS Code", category: "Tool", tag: "Primary Editor" }
+        { name: "Git", category: "Version Control", tag: "Version Control" },
+        { name: "GitHub", category: "Code Repository", tag: "Code Hosting" },
+        { name: "VS Code", category: "Primary Editor", tag: "IDE / Editor" }
       ]
     },
     {
-      category: "Web Capability",
+      title: "EXPLORING",
       description: "Website construction and web exploration",
       skills: [
-        { name: "Web Development / Website Development", category: "Web", tag: "Active Capability" }
+        { name: "Web Development", category: "Web Exploration", tag: "Website Building" }
       ]
     }
   ],
-  currentFocus: [
+  journey: [
     {
-      number: "01",
-      title: "Computer Science Fundamentals",
-      subtitle: "BCA Curriculum",
-      description: "Mastering fundamental data structures, algorithms, discrete structures, and computer organization."
+      step: "01",
+      title: "1st Year BCA",
+      badge: "Academic Base",
+      description: "Enrolled in Bachelor of Computer Applications, establishing a strong theoretical foundation in computer science."
     },
     {
-      number: "02",
-      title: "C Language Fundamentals",
-      subtitle: "Current Mastery Target",
-      description: "Hands-on exploration of pointers, manual memory allocation, file handling, and structural logic in C."
+      step: "02",
+      title: "CS Fundamentals",
+      badge: "Core Logic",
+      description: "Studying core data structures, algorithms, discrete structures, and computer architecture principles."
     },
     {
-      number: "03",
-      title: "Backend & Database Systems",
-      subtitle: "Software Engineering Path",
-      description: "Designing structured SQL database schemas, writing efficient queries, and understanding backend data flow."
+      step: "03",
+      title: "Java & Python",
+      badge: "Programming",
+      description: "Developing problem-solving habits using Java for object-oriented logic and Python for scripting & data manipulation."
     },
     {
-      number: "04",
-      title: "Web Development & Exploration",
-      subtitle: "Building Websites",
-      description: "Crafting structured, responsive website layouts and understanding modern web architecture."
+      step: "04",
+      title: "C Language Mastery",
+      badge: "Current Target",
+      description: "Hands-on exploration of pointers, memory allocation, and structural programming in C."
+    },
+    {
+      step: "05",
+      title: "SQL & Databases",
+      badge: "Backend Focus",
+      description: "Learning relational database modeling, writing structured SQL queries, and handling data persistence."
+    },
+    {
+      step: "06",
+      title: "Web Exploration",
+      badge: "Building Websites",
+      description: "Building websites and exploring web development interfaces alongside backend learning."
+    },
+    {
+      step: "07",
+      title: "Mini-Projects",
+      badge: "Practical Build",
+      description: "Synthesizing concepts by crafting practical mini-projects in Java, Python, SQL, and Web Development."
     }
   ],
   projectsSection: {
-    badge: "What I'm Building",
-    heading: "Projects in Progress",
-    subheading: "I am actively developing mini-projects in Java, Python, SQL, and Web Development to reinforce theoretical knowledge with practical code.",
+    heading: "WHAT I'M BUILDING",
+    subheading: "I am actively applying computer science fundamentals by building mini-projects in Java, Python, SQL, and Web Development while expanding my skills.",
     projects: [
       {
         id: "java-projects",
-        title: "Java Mini-Projects & Logic Suite",
-        type: "Java Application",
+        title: "Java Logic & Console Utilities",
+        tag: "Java Application",
         status: "In Progress",
-        description: "A collection of console-based utilities and problem-solving scripts in Java focusing on object-oriented programming, data handling, and clean modular logic.",
+        description: "A collection of console utilities and algorithmic problem-solving scripts written in Java, emphasizing clean object-oriented architecture and modular design.",
         technologies: ["Java"],
-        highlights: ["Object-Oriented Design", "Console Workflows", "Data Structure Applications"]
+        highlights: ["Object-Oriented Design", "Console Interfaces", "Algorithm Logic"]
       },
       {
         id: "python-automation",
-        title: "Python Scripting & Utilities",
-        type: "Python Script",
+        title: "Python Scripting & Utility Suite",
+        tag: "Python Scripting",
         status: "In Progress",
-        description: "Mini-projects built with Python to automate repetitive tasks, parse data, and implement algorithmic solutions with clean, readable syntax.",
+        description: "Mini-projects built with Python to automate everyday tasks, manipulate data files, and solve algorithmic logic puzzles with concise syntax.",
         technologies: ["Python"],
-        highlights: ["Scripting Logic", "Algorithmic Tasks", "Clean Syntax"]
+        highlights: ["Script Automation", "Data Parsing", "Algorithmic Tasks"]
       },
       {
         id: "sql-workbench",
-        title: "SQL Relational Database Models",
-        type: "Database Project",
+        title: "SQL Database Schema & Queries",
+        tag: "Database System",
         status: "In Progress",
-        description: "Designing relational database schemas, writing complex join queries, and practicing data manipulation and integrity constraints using SQL.",
+        description: "Designing structured relational database schemas, creating entity-relationship mappings, and practicing complex SQL queries.",
         technologies: ["SQL"],
-        highlights: ["Schema Design", "Relational Queries", "Data Integrity"]
+        highlights: ["Schema Design", "Complex Joins", "Data Integrity"]
       },
       {
         id: "web-exploration",
         title: "Responsive Web Development Projects",
-        type: "Web Project",
+        tag: "Web Project",
         status: "In Progress",
-        description: "Designing and deploying clean, responsive websites to present information, structure interfaces, and explore web development best practices.",
-        technologies: ["Web Development / Website Development"],
+        description: "Building responsive, modern websites to structure information elegantly and explore modern web development principles.",
+        technologies: ["Web Development"],
         highlights: ["Responsive Layouts", "Clean UI/UX", "Modern Web Structure"]
       }
     ]
   },
   contact: {
+    heading: "Let's build something interesting.",
+    subheading: "I am always open to discussing computer science, software development, seeking mentorship, or connecting with fellow tech enthusiasts.",
     email: "sumitsumi34163@gmail.com",
-    github: "", // Will be updated if a remote URL exists
-    heading: "Let's Connect",
-    subheading: "I am always excited to discuss computer science, software development, collaborate on projects, or learn from experienced engineers.",
-    availabilityText: "Open for discussions, networking, and learning opportunities"
+    github: "" // Updated if remote configured
   }
 };

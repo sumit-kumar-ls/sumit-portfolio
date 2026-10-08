@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUpRight, Mail, Terminal, Database, Code, Github } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Mail, Code2, Database, BookOpen, Globe } from 'lucide-react';
+import { Character3D } from '../components/Character3D';
 import { profileData } from '../data/profileData';
 
 export const HeroSection = ({ githubUrl }) => {
@@ -16,87 +17,126 @@ export const HeroSection = ({ githubUrl }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
-      {/* Subtle Background Radial Gradient */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
+      {/* Background Soft Organic Glow Blobs */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#EAE3D2]/40 via-[#F4EFE0]/60 to-[#E4DCCF]/30 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Top Status Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-gray-300 mb-8 backdrop-blur-sm shadow-inner">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span className="font-mono text-xs text-gray-400">1st Year BCA Student</span>
-          <span className="text-gray-600">•</span>
-          <span className="text-indigo-300 font-medium">Backend & Software Aspirant</span>
-        </div>
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* LEFT COLUMN: Editorial Typography & CTAs */}
+        <div className="lg:col-span-6 z-10 text-center lg:text-left space-y-6">
+          {/* Greeting Pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-[#E2DAA8] text-xs font-mono font-medium text-[#4A5D2E] shadow-warm-sm backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#C86D51]" />
+            <span>HELLO, I'M SUMIT</span>
+          </div>
 
-        {/* Main Name Heading */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 font-sans">
-          SUMIT KUMAR
-        </h1>
+          {/* Large Headline */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold text-[#1A1918] tracking-tight leading-[1.08]">
+            Building my way <br className="hidden sm:block" />
+            <span className="font-serif italic font-normal text-[#4A5D2E]">into software.</span>
+          </h1>
 
-        {/* Subtitle Roles */}
-        <p className="text-base sm:text-xl font-mono text-indigo-400 max-w-2xl mx-auto mb-6 tracking-wide">
-          Backend & Software Developer Aspirant
-          <span className="text-gray-600 mx-2">|</span>
-          <span className="text-gray-300 font-sans text-sm sm:text-base">Web Development Explorer</span>
-        </p>
+          {/* Supporting Subtitle */}
+          <p className="text-base sm:text-lg text-[#5A5750] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            1st Year BCA student exploring software development, backend systems, and web development. Focused on clean logic, database modeling, and mastering fundamentals.
+          </p>
 
-        {/* Short verified description */}
-        <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Passionate learner exploring <strong className="text-gray-200 font-medium">Java, Python</strong>, and <strong className="text-gray-200 font-medium">SQL</strong>, while currently mastering the <strong className="text-indigo-300 font-medium">C programming language</strong>. Focused on building clean logic, working with databases, and developing toward software engineering.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <a
-            href="#projects"
-            onClick={(e) => scrollToSection(e, '#projects')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 group"
-          >
-            <span>View My Work</span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-
-          <a
-            href="#contact"
-            onClick={(e) => scrollToSection(e, '#contact')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-gray-200 hover:text-white font-medium text-sm transition-all duration-200"
-          >
-            <Mail className="w-4 h-4 text-gray-400" />
-            <span>Contact Me</span>
-          </a>
-
-          {/* Conditional GitHub CTA */}
-          {githubUrl && (
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
             <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-gray-200 hover:text-white font-medium text-sm transition-all duration-200"
+              href="#projects"
+              onClick={(e) => scrollToSection(e, '#projects')}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#2C2B29] hover:bg-[#4A5D2E] text-white font-medium text-sm transition-all duration-300 shadow-warm-md hover:shadow-warm-lg group hover:-translate-y-0.5"
             >
-              <Github className="w-4 h-4 text-gray-400" />
-              <span>GitHub</span>
+              <span>Explore My Work</span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
-          )}
+
+            <a
+              href="#contact"
+              onClick={(e) => scrollToSection(e, '#contact')}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-[#F4F0E8] border border-[#E2DAA8] text-[#2C2B29] font-medium text-sm transition-all duration-300 shadow-warm-sm hover:-translate-y-0.5"
+            >
+              <Mail className="w-4 h-4 text-[#5A5750]" />
+              <span>Let's Connect</span>
+            </a>
+          </div>
+
+          {/* Verified Capabilities Row */}
+          <div className="pt-8 border-t border-[#E8E2D5] grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-left">
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#8A857B]">Education</div>
+              <div className="text-sm font-semibold text-[#1A1918]">1st Year BCA</div>
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#8A857B]">Focus</div>
+              <div className="text-sm font-semibold text-[#4A5D2E]">Backend Dev</div>
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#8A857B]">Languages</div>
+              <div className="text-sm font-semibold text-[#1A1918]">Java & Python</div>
+            </div>
+          </div>
         </div>
 
-        {/* Mini Technical Capability Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-8 border-t border-white/5">
-          <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] text-left">
-            <div className="text-xs font-mono text-gray-500 mb-1">PROGRAMMING</div>
-            <div className="text-sm font-medium text-gray-200">Java & Python</div>
+        {/* RIGHT / CENTER COLUMN: 3D Boy Character Centerpiece & Floating Elements */}
+        <div className="lg:col-span-6 relative flex items-center justify-center min-h-[480px] sm:min-h-[540px]">
+          
+          {/* Central 3D Boy Character */}
+          <div className="relative z-10 w-full">
+            <Character3D />
           </div>
-          <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] text-left">
-            <div className="text-xs font-mono text-gray-500 mb-1">LEARNING TARGET</div>
-            <div className="text-sm font-medium text-indigo-300">C Language</div>
+
+          {/* FLOATING CARD 1: Top Left - 1st Year BCA */}
+          <div className="absolute top-6 left-2 sm:left-6 z-20 p-3.5 rounded-2xl bg-white/95 border border-[#E6DFC7] shadow-warm-md backdrop-blur-md animate-float-slow hidden sm:flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#F4F0E8] flex items-center justify-center text-[#4A5D2E] font-bold text-xs">
+              <BookOpen className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[10px] font-mono uppercase text-[#8A857B]">Degree</div>
+              <div className="text-xs font-semibold text-[#1A1918]">1st Year BCA Student</div>
+            </div>
           </div>
-          <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] text-left">
-            <div className="text-xs font-mono text-gray-500 mb-1">DATABASE</div>
-            <div className="text-sm font-medium text-gray-200">SQL</div>
+
+          {/* FLOATING CARD 2: Top Right - Java & Python */}
+          <div className="absolute top-12 right-2 sm:right-4 z-20 p-3.5 rounded-2xl bg-white/95 border border-[#E6DFC7] shadow-warm-md backdrop-blur-md animate-float-slight hidden sm:flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#F4F0E8] flex items-center justify-center text-[#C86D51] font-bold text-xs">
+              <Code2 className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[10px] font-mono uppercase text-[#8A857B]">Core Languages</div>
+              <div className="text-xs font-semibold text-[#1A1918]">Java & Python</div>
+            </div>
           </div>
-          <div className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.05] text-left">
-            <div className="text-xs font-mono text-gray-500 mb-1">EXPLORATION</div>
-            <div className="text-sm font-medium text-gray-200">Web Development</div>
+
+          {/* FLOATING CARD 3: Bottom Left - C (Learning) */}
+          <div className="absolute bottom-14 left-0 sm:left-4 z-20 p-3.5 rounded-2xl bg-white/95 border border-[#E6DFC7] shadow-warm-md backdrop-blur-md animate-float-slight hidden sm:flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#4A5D2E]/10 flex items-center justify-center text-[#4A5D2E] font-bold text-xs">
+              C
+            </div>
+            <div>
+              <div className="text-[10px] font-mono uppercase text-[#4A5D2E]">Current Target</div>
+              <div className="text-xs font-semibold text-[#1A1918]">C — Learning</div>
+            </div>
+          </div>
+
+          {/* FLOATING CARD 4: Bottom Right - SQL Databases */}
+          <div className="absolute bottom-8 right-2 sm:right-6 z-20 p-3.5 rounded-2xl bg-white/95 border border-[#E6DFC7] shadow-warm-md backdrop-blur-md animate-float-slow hidden sm:flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#F4F0E8] flex items-center justify-center text-[#4A5D2E] font-bold text-xs">
+              <Database className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[10px] font-mono uppercase text-[#8A857B]">Database</div>
+              <div className="text-xs font-semibold text-[#1A1918]">SQL Querying</div>
+            </div>
+          </div>
+
+          {/* FLOATING CARD 5: Mid Right - Web Development */}
+          <div className="absolute top-1/2 -translate-y-1/2 -right-2 z-20 p-3 rounded-xl bg-white/95 border border-[#E6DFC7] shadow-warm-md backdrop-blur-md hidden md:flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-[#EAE3D2] flex items-center justify-center text-[#2C2B29]">
+              <Globe className="w-3.5 h-3.5" />
+            </div>
+            <span className="text-xs font-semibold text-[#1A1918] pr-1">Web Development</span>
           </div>
         </div>
       </div>

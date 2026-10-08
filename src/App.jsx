@@ -3,7 +3,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './sections/HeroSection';
 import { AboutSection } from './sections/AboutSection';
 import { SkillsSection } from './sections/SkillsSection';
-import { FocusSection } from './sections/FocusSection';
+import { JourneySection } from './sections/JourneySection';
 import { ProjectsSection } from './sections/ProjectsSection';
 import { ContactSection } from './sections/ContactSection';
 import { Footer } from './components/Footer';
@@ -15,7 +15,7 @@ export function App() {
   const githubUrl = profileData.contact.github;
 
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'focus', 'projects', 'contact'];
+    const sections = ['home', 'about', 'skills', 'journey', 'projects', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -37,16 +37,16 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0b0c0e] text-[#e1e4ea] relative selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Navbar */}
-      <Navbar activeSection={activeSection} githubUrl={githubUrl} />
+    <div className="min-h-screen bg-[#FAF8F3] text-[#2C2B29] relative selection:bg-[#EAE3D2] selection:text-[#1A1918]">
+      {/* Navbar Header */}
+      <Navbar activeSection={activeSection} />
 
-      {/* Main Sections */}
+      {/* Main Story Sections */}
       <main>
         <HeroSection githubUrl={githubUrl} />
         <AboutSection />
         <SkillsSection />
-        <FocusSection />
+        <JourneySection />
         <ProjectsSection />
         <ContactSection githubUrl={githubUrl} />
       </main>
@@ -54,7 +54,7 @@ export function App() {
       {/* Footer */}
       <Footer githubUrl={githubUrl} />
 
-      {/* Floating Scroll To Top */}
+      {/* Scroll To Top Button */}
       <ScrollToTop />
     </div>
   );
