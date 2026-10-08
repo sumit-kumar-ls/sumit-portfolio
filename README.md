@@ -1,15 +1,44 @@
 # Sumit Kumar — Personal Developer Portfolio
 
-A premium, minimal, modern personal portfolio website built for **Sumit Kumar** (1st Year BCA Student & Aspiring Backend / Software Developer).
+A premium, minimal, warm, 3D character-centered personal portfolio website built for **Sumit Kumar** (1st Year BCA Student & Aspiring Backend / Software Developer).
 
 ![Portfolio Preview Banner](public/favicon.svg)
 
-## 🌟 Overview & Identity
+---
 
-- **Name:** Sumit Kumar
-- **Current Education:** 1st Year BCA (Bachelor of Computer Applications) Student
-- **Professional Direction:** Backend & Software Developer Aspirant
-- **Exploration Area:** Java, Python, SQL, C (Currently Learning), and Web Development
+## 🌟 Overview & Visual Identity
+
+- **Theme:** Warm Cream / Ivory (`#FAF8F3`, `#F4F0E8`, `#FFFFFF`)
+- **Centerpiece:** Interactive 3D Young Student Avatar
+- **Target Persona:** 1st Year BCA Student & Backend / Software Developer Aspirant
+- **Exploration Areas:** Java, Python, SQL, C (Currently Learning), and Web Development
+
+---
+
+## 🎨 How to Replace the 3D Character
+
+The 3D character is completely isolated from the rest of the portfolio UI, allowing you to swap or update the avatar asset at any time without breaking the layout or styles.
+
+### 📍 Step-by-Step Instructions:
+
+1. **Locate the Character Asset Folder:**
+   All character files reside in:
+   👉 `public/assets/character/`
+
+2. **Add Your New Character File:**
+   Place your new 3D avatar file (e.g. `.svg`, `.png`, or `.glb`) into `public/assets/character/`.
+   - *Option A (Keep same filename):* Replace `public/assets/character/sumit-boy.svg` with your new file using the exact same filename.
+   - *Option B (Custom filename):* If your new file is named `my-new-character.png` or `sumit-3d.glb`, open `src/components/Character3D.jsx` in VS Code and change line 9:
+     ```js
+     export const CHARACTER_ASSET_PATH = "/assets/character/my-new-character.png";
+     ```
+
+3. **Test Your Changes:**
+   Run the local development server:
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` to visually inspect your new character.
 
 ---
 
@@ -17,8 +46,9 @@ A premium, minimal, modern personal portfolio website built for **Sumit Kumar** 
 
 - **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Icons:** [Lucide React](https://lucide.dev/)
-- **Typography:** Inter & JetBrains Mono (Google Fonts)
+- **Typography:** Outfit, Plus Jakarta Sans, Instrument Serif, JetBrains Mono (Google Fonts)
 
 ---
 
@@ -27,28 +57,30 @@ A premium, minimal, modern personal portfolio website built for **Sumit Kumar** 
 ```
 MyPortfolio/
 ├── public/
-│   └── favicon.svg           # Minimal SVG favicon
+│   ├── favicon.svg
+│   └── assets/
+│       └── character/
+│           └── sumit-boy.svg # 🎯 Isolated 3D Character Avatar Asset
 ├── src/
-│   ├── assets/               # Visual assets & icons
-│   ├── components/           # Reusable UI components
-│   │   ├── Navbar.jsx        # Sticky navigation drawer & desktop links
-│   │   ├── Footer.jsx        # Clean minimal footer
+│   ├── components/
+│   │   ├── Character3D.jsx   # 🎯 Isolated Character Component with 3D Mouse Tilt
+│   │   ├── Navbar.jsx        # Top cream header with status indicator
+│   │   ├── Footer.jsx        # Minimal warm footer
 │   │   └── ScrollToTop.jsx   # Floating back-to-top button
 │   ├── data/
 │   │   └── profileData.js    # 🎯 CENTRAL SOURCE OF TRUTH for all content!
-│   ├── sections/             # Page sections
-│   │   ├── HeroSection.jsx   # Editorial hero with name & CTAs
-│   │   ├── AboutSection.jsx  # Student identity & background
-│   │   ├── SkillsSection.jsx # Strictly verified skills list (Zero fake metrics)
-│   │   ├── FocusSection.jsx  # Active learning journey & BCA curriculum
-│   │   ├── ProjectsSection.jsx # Projects in Progress & abstract visual cards
-│   │   └── ContactSection.jsx  # Interactive email & contact CTAs
+│   ├── sections/
+│   │   ├── HeroSection.jsx   # Hero revolving around 3D boy centerpiece
+│   │   ├── AboutSection.jsx  # Editorial background & CS mindset
+│   │   ├── SkillsSection.jsx # Bento visual grouping (Verified skills only)
+│   │   ├── JourneySection.jsx# Step-by-step learning progression roadmap
+│   │   ├── ProjectsSection.jsx # "WHAT I'M BUILDING" mini-projects
+│   │   └── ContactSection.jsx  # "Let's build something interesting."
 │   ├── App.jsx               # Main container with active scroll tracking
-│   ├── index.css             # Tailwind imports & custom scrollbar
+│   ├── index.css             # Tailwind v4 imports, warm shadows & fonts
 │   └── main.jsx              # React root entry point
 ├── package.json
 ├── vite.config.js
-├── index.html
 └── README.md
 ```
 
@@ -59,40 +91,38 @@ MyPortfolio/
 All personal profile information, skills, focus areas, projects, and contact info are stored in a single central file:
 👉 `src/data/profileData.js`
 
-To update your email, GitHub link, or add new projects in the future:
+To update your email or GitHub link:
 1. Open `src/data/profileData.js` in VS Code.
-2. Edit the corresponding fields.
-3. Save the file. The website updates automatically in development mode!
+2. Edit the fields.
+3. Save the file. The website updates automatically in dev mode!
 
 ---
 
 ## 💻 Local Execution Commands
 
-### 1. Install Dependencies
+### Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Run Development Server
+### Run Development Server
 ```bash
 npm run dev
 ```
-Open your browser at `http://localhost:5173`.
 
-### 3. Build for Production (GitHub Pages / Vercel / Netlify)
+### Build for Production
 ```bash
 npm run build
 ```
-The optimized production build output will be generated inside the `dist/` directory.
 
 ---
 
 ## 📜 Authenticity & Content Verification
 
-This portfolio strictly follows authentic content rules:
-- **Zero fake skills or frameworks:** Only verified skills (Java, Python, C - Learning, SQL, Git, GitHub, VS Code, Web Development) are shown.
-- **Zero fake percentage bars:** Skill cards are text-based and professional.
-- **Zero fake experience or metrics:** "Projects in Progress" accurately represents ongoing active mini-projects in Java, Python, SQL, and Web Development.
+This portfolio strictly adheres to authentic profile rules:
+- **Zero fake skills:** Only verified skills (Java, Python, C - Learning, SQL, Git, GitHub, VS Code, Web Development) are shown.
+- **Zero fake metrics / progress bars:** Clean bento presentation.
+- **Zero fake experience:** "What I'm Building" accurately represents active mini-projects in Java, Python, SQL, and Web Development.
 
 ---
 
