@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
  * 1. Place your new 3D avatar (.webp, .png, .glb) inside `public/assets/character/`
  * 2. Update the CHARACTER_ASSET_PATH constant below to point to your file.
  */
-export const CHARACTER_ASSET_PATH = `${import.meta.env.BASE_URL}assets/character/sumit-boy.png`;
+export const CHARACTER_ASSET_PATH = `${import.meta.env.BASE_URL}assets/character/portfolioimage.png`;
 
 export const Character3D = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -50,7 +50,7 @@ export const Character3D = () => {
         <img
           src={CHARACTER_ASSET_PATH}
           alt="Sumit Kumar — 3D Character Avatar"
-          className="w-full h-full object-contain filter drop-shadow-[0_20px_30px_rgba(60,50,40,0.12)]"
+          className="w-full h-full object-contain scale-[1.25] filter drop-shadow-[0_20px_30px_rgba(60,50,40,0.12)]"
         />
 
         {/* Soft Realistic Contact Shadow at Feet */}
