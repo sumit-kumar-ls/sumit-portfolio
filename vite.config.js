@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: './', // Ensures relative assets work on GitHub Pages
+  base: '/sumit-portfolio/', // Set GitHub Pages repository subpath
 })
