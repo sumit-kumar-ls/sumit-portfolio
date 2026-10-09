@@ -109,46 +109,9 @@ export const profileData = {
     }
   ],
   projectsSection: {
-    heading: "WHAT I'M BUILDING",
-    subheading: "I am actively applying computer science fundamentals by building mini-projects in Java, Python, SQL, and Web Development while expanding my skills.",
-    projects: [
-      {
-        id: "java-projects",
-        title: "Java Logic & Mini-Projects",
-        tag: "Java Application",
-        status: "In Progress",
-        description: "A collection of console utilities and algorithmic problem-solving scripts written in Java, emphasizing object-oriented logic and modular design.",
-        technologies: ["Java"],
-        highlights: ["Object-Oriented Concepts", "Console Workflows", "Algorithmic Tasks"]
-      },
-      {
-        id: "python-automation",
-        title: "Python Scripting & Utilities",
-        tag: "Python Scripting",
-        status: "In Progress",
-        description: "Mini-projects built with Python to automate everyday tasks, parse data files, and practice programming fundamentals.",
-        technologies: ["Python"],
-        highlights: ["Scripting Logic", "Data Parsing", "Problem Solving"]
-      },
-      {
-        id: "sql-workbench",
-        title: "SQL Relational Database Practice",
-        tag: "Database System",
-        status: "In Progress",
-        description: "Practicing relational database concepts, designing schemas, and writing structured SQL queries.",
-        technologies: ["SQL"],
-        highlights: ["Schema Concepts", "Relational Queries", "Data Integrity"]
-      },
-      {
-        id: "web-exploration",
-        title: "Responsive Web Development Projects",
-        tag: "Web Project",
-        status: "In Progress",
-        description: "Building responsive, modern websites to present information cleanly and explore web development best practices.",
-        technologies: ["Web Development"],
-        highlights: ["Responsive Layouts", "Clean UI/UX", "Modern Web Structure"]
-      }
-    ]
+    heading: "Selected Projects",
+    subheading: "A gallery of projects and experiments.",
+    projects: []
   },
   contact: {
     heading: "Let's build something interesting.",

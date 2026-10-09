@@ -38,25 +38,13 @@ export const Navbar = ({ activeSection }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#E6DFC7] py-4 shadow-warm-sm'
-          : 'bg-transparent py-6'
+          ? 'bg-[#FAF8F3]/25 backdrop-blur-xl py-1'
+          : 'bg-transparent py-2'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Brand Name Logo */}
-        <a
-          href="#home"
-          onClick={(e) => scrollToSection(e, '#home')}
-          className="group flex items-center gap-3 font-heading font-bold text-lg sm:text-xl tracking-tight text-[#1A1918] hover:text-[#4A5D2E] transition-colors"
-        >
-          <span className="w-8 h-8 rounded-full bg-[#EAE3D2] border border-[#D5CBAE] flex items-center justify-center text-xs font-semibold text-[#4A5D2E] group-hover:bg-[#4A5D2E] group-hover:text-white transition-all">
-            SK
-          </span>
-          <span className="tracking-wide">SUMIT KUMAR</span>
-        </a>
-
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-[#4A4741]">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-center relative z-10">
+{/* Desktop Links */}
+        <nav className="hidden md:flex items-center gap-3 lg:gap-7 rounded-full border border-[#E6DFC7] bg-white/85 px-4 lg:px-7 py-3 font-medium text-xs lg:text-sm text-[#4A4741] shadow-warm-sm backdrop-blur-md">
           {navItems.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -78,22 +66,19 @@ export const Navbar = ({ activeSection }) => {
           })}
         </nav>
 
-        {/* Right Side Status */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#contact"
-            onClick={(e) => scrollToSection(e, '#contact')}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E2DAA8] text-xs font-medium text-[#2C2B29] hover:border-[#4A5D2E] shadow-warm-sm transition-all hover:-translate-y-0.5"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#4A5D2E] animate-pulse" />
-            <span>Available to connect</span>
-          </a>
-        </div>
+        {/* Name on the right side, outside the navigation pill */}
+        <a
+          href="#home"
+          onClick={(e) => scrollToSection(e, '#home')}
+          className="hidden md:inline-flex absolute right-0 -translate-y-1 items-center whitespace-nowrap text-base lg:text-lg font-heading font-semibold tracking-tight text-[#4A5D2E] transition-colors hover:text-[#1A1918]"
+        >
+          SUMIT KUMAR
+        </a>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-xl bg-white border border-[#E2DAA8] text-[#2C2B29] hover:bg-[#F4F0E8] transition-colors"
+          className="absolute right-6 md:hidden p-2 rounded-xl bg-white border border-[#E2DAA8] text-[#2C2B29] hover:bg-[#F4F0E8] transition-colors"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

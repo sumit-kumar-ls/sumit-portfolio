@@ -17,9 +17,9 @@ export const HeroSection = ({ githubUrl }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
+    <section id="home" className="relative mx-3 sm:mx-6 lg:mx-12 mt-20 mb-6 min-h-[calc(92vh-4rem)] flex items-center justify-center pt-20 pb-16 overflow-hidden rounded-[32px] border border-[#E6DFC7]/80 bg-[#FCFBF7] shadow-warm-md">
       {/* Background Soft Organic Glow Blobs */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#EAE3D2]/40 via-[#F4EFE0]/60 to-[#E4DCCF]/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#F6D7C9]/50 via-[#F7EBDD]/65 to-[#C86D51]/15 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* LEFT COLUMN: Editorial Typography & CTAs */}
@@ -38,7 +38,7 @@ export const HeroSection = ({ githubUrl }) => {
 
           {/* Supporting Subtitle */}
           <p className="text-base sm:text-lg text-[#5A5750] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-            1st Year BCA student exploring software development, backend systems, and web development. Focused on clean logic, database modeling, and mastering fundamentals.
+            I'm a 1st-year BCA student exploring backend development, databases, and web technologies—one practical project at a time.
           </p>
 
           {/* CTAs */}
@@ -55,10 +55,10 @@ export const HeroSection = ({ githubUrl }) => {
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-[#F4F0E8] border border-[#E2DAA8] text-[#2C2B29] font-medium text-sm transition-all duration-300 shadow-warm-sm hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#C86D51] hover:bg-[#B95D43] border border-[#C86D51] text-white font-medium text-sm transition-all duration-300 shadow-warm-md hover:-translate-y-0.5"
             >
-              <Mail className="w-4 h-4 text-[#5A5750]" />
-              <span>Let's Connect</span>
+              <Mail className="w-4 h-4 text-white" />
+              <span>Get in Touch</span>
             </a>
           </div>
 

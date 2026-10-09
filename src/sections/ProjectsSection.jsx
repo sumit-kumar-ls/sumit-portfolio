@@ -1,98 +1,181 @@
 import React from 'react';
-import { Sparkles, Code2, Terminal, Database, Globe, Clock } from 'lucide-react';
+import {
+  Sparkles,
+  Code2,
+  Terminal,
+  Database,
+  Globe,
+  Layers,
+  ArrowUpRight,
+  Github,
+} from 'lucide-react';
 import { profileData } from '../data/profileData';
 
-const projectIcons = {
-  "java-projects": <Code2 className="w-6 h-6 text-[#4A5D2E]" />,
-  "python-automation": <Terminal className="w-6 h-6 text-[#4A5D2E]" />,
-  "sql-workbench": <Database className="w-6 h-6 text-[#4A5D2E]" />,
-  "web-exploration": <Globe className="w-6 h-6 text-[#4A5D2E]" />
+const iconRegistry = {
+  code: Code2,
+  terminal: Terminal,
+  database: Database,
+  globe: Globe,
+  layers: Layers,
+};
+
+const getProjectIcon = (project) => {
+  if (typeof project.icon === 'string' && iconRegistry[project.icon.toLowerCase()]) {
+    return iconRegistry[project.icon.toLowerCase()];
+  }
+
+  const label = `${project.id || ''} ${project.tag || ''} ${project.title || ''}`.toLowerCase();
+
+  if (/\b(sql|database|data)\b/.test(label)) return Database;
+  if (/\b(python|terminal|automation|script)\b/.test(label)) return Terminal;
+  if (/\b(web|website|frontend|portfolio|site)\b/.test(label)) return Globe;
+
+  return Code2;
+};
+
+const resolveProjectImage = (image) => {
+  if (!image) return '';
+  if (/^(https?:\/\/|data:)/i.test(image)) return image;
+
+  return `${import.meta.env.BASE_URL}${image.replace(/^\/+/, '')}`;
+};
+
+const ProjectCard = ({ project }) => {
+  const Icon = getProjectIcon(project);
+  const imageSrc = resolveProjectImage(project.image);
+  const technologies = Array.isArray(project.technologies)
+    ? project.technologies
+    : [];
+
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#E8E2D5] bg-white shadow-warm-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#4A5D2E]/35 hover:shadow-warm-md">
+      {/* Optional image preview; clean visual fallback when no image exists */}
+      <div className="relative aspect-[16/9] overflow-hidden border-b border-[#E8E2D5] bg-gradient-to-br from-[#EAE3D2]/80 via-[#F4F0E8] to-[#E8EBDD]">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="absolute -left-12 -top-16 h-48 w-48 rounded-full bg-[#D8DCC7]/75 blur-3xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-20 -right-8 h-56 w-56 rounded-full bg-[#E8CDB8]/70 blur-3xl"
+            />
+            <div className="relative flex h-20 w-20 items-center justify-center rounded-[26px] border border-white/80 bg-white/75 text-[#4A5D2E] shadow-warm-md backdrop-blur-sm transition-transform duration-300 group-hover:scale-105">
+              <Icon className="h-9 w-9" strokeWidth={1.6} />
+            </div>
+          </div>
+        )}
+
+        {project.status && (
+          <span className="absolute right-3 top-3 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/90 px-3 py-1.5 text-xs font-medium text-[#4A5D2E] shadow-warm-sm backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C86D51]" />
+            {project.status}
+          </span>
+        )}
+      </div>
+
+      {/* Project details */}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        {project.tag && (
+          <p className="mb-2 text-xs font-mono font-medium uppercase tracking-wider text-[#8A857B]">
+            {project.tag}
+          </p>
+        )}
+
+        <h3 className="text-xl font-heading font-bold leading-snug text-[#1A1918] transition-colors group-hover:text-[#4A5D2E]">
+          {project.title}
+        </h3>
+
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#5A5750]">
+          {project.description}
+        </p>
+
+        {technologies.length > 0 && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {technologies.map((technology) => (
+              <span
+                key={technology}
+                className="rounded-full border border-[#E8E2D5] bg-[#FAF8F3] px-3 py-1.5 text-xs font-medium text-[#4A4741]"
+              >
+                {technology}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {(project.liveUrl || project.githubUrl) && (
+          <div className="mt-5 flex flex-wrap gap-3 border-t border-[#F0EBE1] pt-4">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4A5D2E] transition-colors hover:text-[#C86D51]"
+              >
+                Live Demo <ArrowUpRight className="h-4 w-4" />
+              </a>
+            )}
+
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4A5D2E] transition-colors hover:text-[#C86D51]"
+              >
+                <Github className="h-4 w-4" /> GitHub
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </article>
+  );
 };
 
 export const ProjectsSection = () => {
-  const { heading, subheading, projects } = profileData.projectsSection;
+  const { heading, subheading, projects = [] } = profileData.projectsSection;
 
   return (
-    <section id="projects" className="py-24 relative border-t border-[#E8E2D5] bg-[#FAF8F3]">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAE3D2]/70 text-xs font-mono font-medium text-[#4A5D2E]">
-            <Sparkles className="w-3.5 h-3.5 text-[#C86D51]" />
-            <span>ACTIVE EXPLORATION</span>
+    <section
+      id="projects"
+      className="relative border-t border-[#E8E2D5] bg-[#FAF8F3] py-16 sm:py-24"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-10 max-w-3xl space-y-4 sm:mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#EAE3D2]/70 px-3 py-1 text-xs font-mono font-medium text-[#4A5D2E]">
+            <Sparkles className="h-3.5 w-3.5 text-[#C86D51]" />
+            <span>PROJECT GALLERY</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-[#1A1918] tracking-tight">
+          <h2 className="text-3xl font-heading font-bold tracking-tight text-[#1A1918] sm:text-5xl">
             {heading}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#5A5750] leading-relaxed">
+          <p className="max-w-2xl text-base leading-relaxed text-[#5A5750] sm:text-lg">
             {subheading}
           </p>
         </div>
 
-        {/* Asymmetric Product-Design Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((proj, idx) => {
-            const isFeatured = idx === 0;
-
-            return (
-              <div
-                key={proj.id}
-                className={`group relative p-8 rounded-3xl bg-white border border-[#E8E2D5] shadow-warm-sm hover:shadow-warm-md transition-all duration-300 flex flex-col justify-between overflow-hidden ${
-                  isFeatured ? 'md:col-span-2 bg-gradient-to-br from-white via-[#FAF8F3] to-[#F4F0E8]/50' : ''
-                }`}
-              >
-                {/* Abstract Stylized Graphic Top Accent */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#F0EBE1]">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#F4F0E8] flex items-center justify-center border border-[#E6DFC7]">
-                      {projectIcons[proj.id] || <Code2 className="w-6 h-6 text-[#4A5D2E]" />}
-                    </div>
-                    <div>
-                      <span className="text-xs font-mono text-[#8A857B] block">{proj.tag}</span>
-                      <span className="text-sm font-semibold text-[#1A1918]">Mini-Project Suite</span>
-                    </div>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4A5D2E]/10 border border-[#4A5D2E]/20 text-xs font-mono text-[#4A5D2E] font-medium">
-                    <Clock className="w-3.5 h-3.5 animate-spin" />
-                    <span>{proj.status}</span>
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="space-y-4 mb-6">
-                  <h3 className="text-2xl font-heading font-bold text-[#1A1918] group-hover:text-[#4A5D2E] transition-colors">
-                    {proj.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#5A5750] leading-relaxed">
-                    {proj.description}
-                  </p>
-                </div>
-
-                {/* Focus Highlights */}
-                <div className="pt-4 border-t border-[#F0EBE1] flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {proj.highlights.map((h, hIdx) => (
-                      <span key={hIdx} className="px-3 py-1 rounded-xl bg-[#FAF8F3] border border-[#E8E2D5] text-xs font-medium text-[#2C2B29]">
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    {proj.technologies.map((tech, tIdx) => (
-                      <span key={tIdx} className="px-3 py-1 rounded-xl bg-[#4A5D2E] text-white text-xs font-mono font-semibold">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {projects.length > 0 ? (
+          <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-6">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.id || `${project.title}-${index}`}
+                project={project}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );
